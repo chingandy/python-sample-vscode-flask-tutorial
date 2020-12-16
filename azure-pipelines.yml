@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
 
 trigger:
-- foo
+- master
 
 pool:
   vmImage: 'macos-latest'
@@ -34,10 +34,3 @@ steps:
     pip install pytest pytest-azurepipelines
     pytest
   displayName: 'pytest'
-
-- task: PublishCodeCoverageResults@1
-  inputs:
-   codeCoverageTool: "JaCoCo"
-   summaryFileLocation: "$(System.DefaultWorkingDirectory)/**/site/jacoco/jacoco.xml"
-   reportDirectory: "$(System.DefaultWorkingDirectory)/**/site/jacoco"
-   failIfCoverageEmpty: true
