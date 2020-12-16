@@ -19,6 +19,9 @@ strategy:
     Python37:
       python.version: '3.7'
 
+variables:
+  Variable1: 10000
+
 steps:
 - task: UsePythonVersion@0
   inputs:
@@ -36,3 +39,6 @@ steps:
   displayName: 'pytest'
 
 - script: echo This is pipeline $(System.DefinitionId)
+
+- script: |
+    echo The value passed in is $(Variable1).
